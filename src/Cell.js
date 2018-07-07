@@ -32,8 +32,6 @@ class Cell extends PureComponent {
 
   handleClick = () => {
     this.props.onClickAction(this.props.id);
-    // console.log(this.props);
-    // console.log('Clicked', this.props.id);
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -51,7 +49,7 @@ class Cell extends PureComponent {
       <div
         className="cell"
         style={{
-          width: "25%",
+          width: "25%", //25%
           backgroundColor: bgColors[this.status()]
         }}
         onClick={this.handleClick}

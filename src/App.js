@@ -40,23 +40,14 @@ class Game extends Component {
   };
 
   onCellClick = cellId => {
-    const isCellChallenge = this.challengeCellIds.indexOf(cellId) >= 0;
-    console.log(isCellChallenge);
-    // console.log("Cell Click from Parent", cellId);
-    //const isCellChallenge = this.challengeCellIds.indexOf(cellId) >= 0;
-    //this.setState(prevState => {
-    //  return {
-    //    clickedCells: [...prevState.clickedCells, cellId]
-    // };
-    //});
-    // closures
-    this.setState({
-      clickedCells: [...this.state.clickedCells, cellId]
+    this.setState(prevState => {
+      return {
+        clickedCells: [...prevState.clickedCells, cellId]
+      };
     });
   };
 
   render() {
-    // console.log("cellIDS", this.challengeCellIds);
     return (
       <div className="game">
         <div className="help">
@@ -80,7 +71,7 @@ class Game extends Component {
             );
           })}{" "}
         </div>{" "}
-        <button onClick={this.props.playAgainAction}> Reset </button>{" "}
+        <button onClick={this.props.playAgainAction}> Play Again </button>{" "}
         <div className="message"> {messages[this.state.gameStatus]} </div>{" "}
       </div>
     );
